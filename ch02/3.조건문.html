@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>3.조건문</title>
-    <!--    
+    <!--
         날짜 : 2025/02/10
         이름 : 최명기
         내용 : 2장 변수와 연산자
-    
-    
     -->
 </head>
 <body>
@@ -20,51 +17,74 @@
         let num1 = 1;
         let num2 = 2;
 
-        if(num1 < num2) {
+        if(num1 < num2){
             document.write('num1은 num2보다 작다.<br>');
         }
 
-        if (num1 > 0) {
-            if(num2 > 1) {
-                document.write('num1은 0보다 크고 num2는 1보다 크다');
+        if(num1 > 0){
+            if(num2 > 1){
+                document.write('num1은 0보다 크고 num2는 1보다 크다.<br>');
             }
         }
 
-        if (num1 > 0 && num2 > 1) {
-            document.write('num1은 0보다 크고 num2는 1보다 크다. <br>');
-   
+        if(num1 > 0 && num2 > 1){
+            document.write('num1은 0보다 크고 num2는 1보다 크다.<br>');
         }
+    </script>
 
+    <h4>if ~ else</h4>
+    <script>
+        let var1 = 1;
+        let var2 = 2;
 
-
+        if(var1 > var2){
+            document.write('var1은 var2보다 크다.<br>');
+        }else{
+            document.write('var1은 var2보다 작다.<br>');
+        }
     </script>
 
     <h4>if ~ else if ~ else</h4>
     <script>
-        let n1 = 1, n2 = 2, n3 = 3 , n4 = 4;
+        let n1 = 1, n2 = 2, n3 = 3, n4 =4;
 
-        if (n1 > n2 ) {
-            document.write('n1은 n2보다 크다. <br>');
-        } else if (n2 > n3) {
-            document.write('n2은 n3보다 크다. <br>');
-        } else if (n3 > n4) {
-            document.write('n3은 n4보다 크다. <br>');
-        } else {
-            document.write('n4가 제일 크다. <br>');
+        if(n1 > n2){
+            document.write('n1은 n2보다 크다.<br>');
+        }else if(n2 > n3){
+            document.write('n2은 n3보다 크다.<br>');
+        }else if(n3 > n4){
+            document.write('n3은 n4보다 크다.<br>');
+        }else{
+            document.write('n4가 제일 크다.<br>');
         }
-
-
     </script>
-<script>
+
     <h4>switch</h4>
-    let score = prompt('점수 입력');
-    document.write('입력점수' + score + '<br>');
+    <script>
+        let score = prompt('점수 입력');
+        document.write('입력점수 : ' + score + ', type : ' + typeof score + '<br>');
 
-    let result = parseInt(score /10)
+        let result = parseInt(score / 10);
+        document.write('결과 : ' + result + '<br>');
 
-    
-
-
-</script>
+        switch(result){
+            case 10:
+            case 9:
+                document.write('A 입니다.<br>');
+                break;
+            case 8:
+                document.write('B 입니다.<br>');
+                break;
+            case 7:
+                document.write('C 입니다.<br>');
+                break;
+            case 6:
+                document.write('D 입니다.<br>');
+                break;
+            default:
+                document.write('F 입니다.<br>');
+                break;
+        }
+    </script>
 </body>
 </html>
