@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.조건문</title>
+    <!--    
+        날짜 : 2025/02/10
+        이름 : 최명기
+        내용 : 2장 변수와 연산자
+    
+    
+    -->
+</head>
+<body>
+    <h3>3.조건문</h3>
+
+    <h4>if</h4>
+    <script>
+        let num1 = 1;
+        let num2 = 2;
+
+        if(num1 < num2) {
+            document.write('num1은 num2보다 작다.<br>');
+        }
+
+        if (num1 > 0) {
+            if(num2 > 1) {
+                document.write('num1은 0보다 크고 num2는 1보다 크다');
+            }
+        }
+
+        if (num1 > 0 && num2 > 1) {
+            document.write('num1은 0보다 크고 num2는 1보다 크다. <br>');
+   
+        }
+
+
+
+    </script>
+
+    <h4>if ~ else if ~ else</h4>
+    <script>
+        let n1 = 1, n2 = 2, n3 = 3 , n4 = 4;
+
+        if (n1 > n2 ) {
+            document.write('n1은 n2보다 크다. <br>');
+        } else if (n2 > n3) {
+            document.write('n2은 n3보다 크다. <br>');
+        } else if (n3 > n4) {
+            document.write('n3은 n4보다 크다. <br>');
+        } else {
+            document.write('n4가 제일 크다. <br>');
+        }
+
+
+    </script>
+<script>
+    <h4>switch</h4>
+    let score = prompt('점수 입력');
+    document.write('입력점수' + score + '<br>');
+
+    let result = parseInt(score /10)
+
+    
+
+
+</script>
+</body>
+</html>
