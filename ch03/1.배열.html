@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. 배열</title>
+    <!--
+        날짜 : 2025/02/11
+        이름 : 최명기
+        내용 : 자바스크립트 배열 실습
+    
+    
+    -->
+</head>
+<body>
+
+    <h3>1.배열</h3>
+    
+    <script>
+        // 배열 생성
+        const arr = [1,2,3,4,5];
+
+        for(let i =0; i<arr.length; i++) {
+            document.write('arr['+i+'] : ' + arr[i] + '<br>');
+        }
+
+        // 배열 인덱스 참조 반복문
+        for(let i in arr) {
+            document.write('arr['+i+'] : ' + arr[i] + '<br>');
+
+        }
+
+        // 배열 연속 참조 반복문
+        for (let num of arr) {
+            document.write(num + '<br>');
+        }
+
+        // 2차원 배열
+        const arr2d = [[1,2,3],
+                       [4,5,6],
+                       [7,8,9]];
+
+
+        document.write('arr2d[0][0] : ' + arr[0][0] + '<br>');
+        document.write('arr2d[1][2] : ' + arr[1][2] + '<br>');
+        document.write('arr2d[2][1] : ' + arr[2][1] + '<br>');
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.객체</title>
+    <!--
+        날짜 : 2025/02/11
+        이름 : 최명기
+        내용 : 자바스크립트 객체 실습
+
+    -->
+
+    <!-- 외부 JS 파일 추가 -->
+    <script src="./js/Account.js"></script>
+</head>
+<body>
+    <h3>1.객체</h3>
+<script>
+
+    const kb = new Account('국민은행','101-11-1001','김유신',1000);
+    kb.deposit(35000);
+    kb.withdraw(6000);
+    kb.show();
+
+    const wr = new Account('우리은행','101-12-1002','김춘추',5000);
+    wr.deposit(10000);
+    wr.withdraw(7000);
+    wr.show();
+
+    // 사용자 정의 객체 생성
+    const sonata = {
+        name : '소나타',
+        color : '흰색',
+        speed : 0,
+        speedUp:function(speed){
+            this.speed += speed;
+        },
+        speedDown:function(speed){
+            this.speed -= speed;
+        },
+        show:function() {
+            document.write('차량명 : '+ this.name + '<br');
+            document.write('차량색 : '+ this.color + '<br');
+            document.write('차량속도 : '+ this.speed + '<br');
+        }
+   
+    };
+
+    sonata.speedUp(80);
+    sonata.speedDown(20);
+    sonata.show();
+
+    // 객체 구조 분해 할당 
+    const {name,color,speed} = sonata;
+
+    document.write('name : ' + name + '<br>');
+    document.write('color : ' + color + '<br>');
+    document.write('speed : ' + speed + '<br>');
+
+
+</script>
+    
+
+</body>
+</html>
