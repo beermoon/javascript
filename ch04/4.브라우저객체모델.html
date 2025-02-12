@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.브라우저객체모델</title>
+</head>
+<body>
+    <h3>4.브라우저 객체모델</h3>
+
+    <h4>window</h4>
+    <script>
+        // window 객체
+        window.document.write('innerWidth : ' + window.innerWidth + '<br>');
+        window.document.write('innerHeight : ' + window.innerHeight + '<br>');
+
+        // 새창 띄우기
+        window.open('./1.객체.html','객체예제','width=600 height=500');
+
+        // 브라우저 로컬 저장소
+        window.localStorage.setItem('username','김유신');
+        window.sessionStorage.setItem('username','김춘추');
+
+
+
+    </script>
+
+
+    <h4>navigator</h4>
+    <script>
+        // navigator 객체
+
+        document.write('브라우저 코드네임 : ' + navigator.appCodeName + '<br>');
+        document.write('브라우저 네임 : ' + navigator.appName + '<br>');
+        document.write('브라우저 버전 : ' + navigator.appVersion + '<br>');
+        document.write('브라우저 플랫폼 : ' + navigator.platform + '<br>');
+        document.write('브라우저 정보 : ' + navigator.userAgent + '<br>');
+
+    </script>
+
+    <h4>location</h4>
+
+    <button onclick="refresh()"{}>새로고침</button>
+    <button onclick="naver()">네이버</button>
+    <button onclick="google">구글</button>
+
+    <script>
+        function refresh() {
+            location.reload();
+        }
+
+        const naver = function() {
+            location.href = 'https://naver.com';
+        }
+
+        const google = () => {
+            location.replace('https://google.com');
+        }
+
+
+
+    </script>
+    
+
+    <h4>history</h4>
+    <button onclick="back()">뒤로</button>
+    <button onclick="forward()">앞으로</button>
+
+    <script>
+        // history 객체
+
+        document.write('history 길이 : ' + history.length + '<br>');
+
+        const back = () => history.back();
+        const forward = () => history.forward();
+
+
+    </script>
+
+
+</body>
+</html>

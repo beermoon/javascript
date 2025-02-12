@@ -207,8 +207,64 @@
 
 
     <h4>Math</h4>
+    <script>
+        let rs1 = Math.abs(-5);
+        let rs2 = Math.sqrt(9);
+        let rs3 = Math.ceil(1.2);
+        let rs4 = Math.ceil(1.8);
+        let rs5 = Math.floor(1.2);
+        let rs6 = Math.floor(1.8);
+        let rs7 = Math.round(1.2);
+        let rs8 = Math.round(1.8);
+        
+
+        document.write('rs1 : ' + rs1 + '<br>');
+        document.write('rs2 : ' + rs2 + '<br>');
+        document.write('rs3 : ' + rs3 + '<br>');
+        document.write('rs4 : ' + rs4 + '<br>');
+        document.write('rs5 : ' + rs5 + '<br>');
+        document.write('rs6 : ' + rs6 + '<br>');
+        document.write('rs7 : ' + rs7 + '<br>');
+        document.write('rs8 : ' + rs8 + '<br>');
+        document.write('rs9 : ' + rs9 + '<br>');
+
+        let n1 = Math.random();
+        document.write('n1 : ' + n1 + '<br>');
+
+        let n2 = n1 * 10;
+        document.write('n2 : ' + n2 + '<br>');
+
+        let n3 = Math.ceil(n2);
+        document.write('n3 : ' + n3 + '<br>');
+
+        let n4 = Math.ceil(Math.random() * 10);
+        document.write('n4 : ' + n4 + '<br>');
+
+    </script>
+        
+
+
+
+
 
     <h4>Date</h4>
+    <script>
+        const date = new Date();
+        document.write(date);
+
+        let yy = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let dd = date.getDate();
+        let hour = date.getHours();
+        let min = date.getMinutes();
+        let sec = date.getSeconds();
+
+        // 템플릿 문자열
+        document.write(`${yy}년 ${mm}월 ${dd}일  ${hour}:${min}:${sec}`);
+
+        
+
+    </script>
 
 </body>
 </html>
