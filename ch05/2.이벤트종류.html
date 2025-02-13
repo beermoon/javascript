@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2.이벤트종류</title>
+    <!--
+        날짜 : 2025/02/13
+        이름 : 최명기
+        내용 : 이벤트 종류 실습    
+    -->
+    <style>
+        html {
+            width: 100%;
+            height: 2000px;
+        }
+
+        #scroll {
+            position: fixed;
+            right: 10px;
+            top: 10px;
+        }
+
+        .box {
+            display: inline-block;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+
+    </style>
+    <script>
+        console.log('load...1');
+
+        // 브라우저가 HTML 문서 로드가 완료된 후 실행되는 이벤트
+        window.onload = function(){
+            console.log('load...2');
+
+            // HTML 문서가 로드된 이후에 문서객체 생성 가능
+            const btnConfirm = document.getElementById('btnConfirm');
+            console.log(btnConfirm);
+        
+            btnConfirm.onclick = () => {
+                alert('확인 버튼 클릭!!!');
+            }
+
+            // 마우스 이벤트 종류
+            const boxs = document.getElementsByClassName('box');
+
+            boxs[0].addEventListener('click', function(){
+                this.style.background = 'red';
+            });
+            boxs[1].addEventListener('mousedown', function(){
+                this.style.background = 'green';
+            });
+            boxs[2].addEventListener('mouseup', function(){
+                this.style.background = 'blue';
+            });
+            boxs[3].addEventListener('mouseover', function(){
+                this.style.background = 'orange';
+            });
+            boxs[4].addEventListener('mouseenter', function(){
+                this.style.background = 'yellow';
+            });
+            boxs[5].addEventListener('mouseout', function(){
+                this.style.background = 'gray';
+            });
+            boxs[6].addEventListener('mouseleave', function(){
+                this.style.background = 'pink';
+            });
+            boxs[7].addEventListener('mousemove', function(){
+                console.log('mousemove!');
+            });
+
+            // 키보드 이벤트
+            const txt1 = document.getElementsByName('txt1')[0];
+            const txt2 = document.getElementsByName('txt2')[0];
+            const result1 = document.getElementsByClassName('result1')[0];
+            const result2 = document.getElementsByClassName('result2')[0];
+
+            txt1.addEventListener('keydown', function(){
+                result1.innerText = this.value;
+            });
+            txt2.addEventListener('keyup', function(){
+                result2.innerText = this.value;
+            });
+
+            // 폼 이벤트
+            const formUser = document.formUser; // form 태그 name 속성값으로 문서객체 생성
+            const inputUid = formUser.uid;
+            const inputName = formUser.name;
+            const selectAddr = formUser.addr;
+
+            const prints = document.querySelectorAll('.print');
+
+            inputUid.addEventListener('focus', function(){
+                prints[0].innerText = 'focus!';
+            });
+
+            inputName.addEventListener('focusout', function(){
+                prints[1].innerText = 'focusout!';
+            });
+
+            selectAddr.addEventListener('change', function(){
+                prints[2].innerText = this.value;
+            });
+
+            formUser.addEventListener('submit', function(){
+                alert('전송시작!');
+            });
+        }
+
+        // 문서 스크롤 이벤트
+        window.onscroll = function(){
+            console.log('scroll!!!');
+
+            let y = this.scrollY;
+
+            const span = document.getElementById('scroll');
+            span.innerText = y;
+        }    
+    </script>
+</head>
+<body>
+    <h3>2.이벤트 종류</h3>
+
+    <h4>문서 이벤트</h4>
+    <button id="btnConfirm">확인</button>
+    <span id="scroll">0</span>
+
+    <h4>마우스 이벤트</h4>
+    <div id="content1">
+        <div class="box box1">click</div>
+        <div class="box box2">mousedown</div>
+        <div class="box box3">mouseup</div>
+        <div class="box box4">mouseover</div>
+        <div class="box box5">mouseenter</div>
+        <div class="box box6">mouseout</div>
+        <div class="box box7">mouseleave</div>
+        <div class="box box8">mousemove</div>
+    </div>
+    
+    <h4>키보드 이벤트</h4>
+
+    <div id="content2">
+        <p>
+            <input type="text" name="txt1">
+            <span class="result1"></span>
+        </p>
+        <p>
+            <input type="text" name="txt2">
+            <span class="result2"></span>
+        </p>
+    </div>
+    
+    <h4>폼 이벤트</h4>
+    <form action="https://naver.com" name="formUser">
+        <p>
+            <input type="text" name="uid">
+            <span class="print"></span>
+        </p>
+        <p>
+            <input type="text" name="name">
+            <span class="print"></span>
+        </p>
+        <p>
+            <select name="addr">
+                <option>서울</option>
+                <option>대전</option>
+                <option>대구</option>
+                <option>부산</option>
+                <option>광주</option>
+            </select>
+            <span class="print"></span>
+        </p>
+        <input type="submit" value="전송">
+    </form>
+
+</body>
+</html>
+<script>
+    console.log('load...3');
+</script>

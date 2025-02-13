@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.이벤트</title>
+    <!--
+        날짜 : 2025/02/13
+        이름 : 최명기
+        내용 : 자바스크립트 이벤트 실습
+    
+    -->
+</head>
+<body>
+    <h3 onclick="btn1Handler()">1.이벤트</h3>
+
+    <h4>인라인 이벤트 모델</h4>
+    <button onclick="btn1Handler()">버튼1</button>
+    <button ondblclick="btn2Handler()">버튼2</button>
+    <button onmousedown="btn3Handler()">버튼3</button>
+
+    <script>
+        // 인라인 이벤트 모델
+        function btn1Handler() {
+            alert('버튼1 클릭!');
+        }
+
+        function btn2Handler() {
+            alert('버튼2 더블클릭');
+        }
+
+        function btn3Handler() {
+            alert('버튼3 마우스업');
+        }
+
+
+    </script>
+
+    <h4>기본 이벤트 모델</h4>
+    <button id="btn1">버튼1</button>
+    <button id="btn2">버튼2</button>
+    <button id="btn3">버튼3</button>
+
+    <script>
+        // 기본이벤트 모델
+        const btn1 = document.getElementById('btn1');
+        const btn2 = document.getElementById('btn2');
+        const btn3 = document.getElementById('btn3');
+
+        btn1.onclick = function() {
+            alert('버튼1 클릭!');
+        }
+
+        btn2.onmouseenter = function() {
+            alert('버튼1 클릭!');
+        }
+
+        btn3.onmousedown = () => {
+            alert('버튼3 마우스아웃');
+        }
+    </script>
+
+
+    <h4>표준 이벤트 모델</h4>
+    <button class="btn1">버튼1</button>    
+    <button class="btn2">버튼2</button>    
+    <button class="btn3">버튼3</button>    
+
+    <script>
+
+        const bttn1 = document.getElementsByClassName('btn1')[0];
+        const bttn2 = document.getElementsByClassName('btn2')[0];
+        const bttn3 = document.getElementsByClassName('btn3')[0];
+
+
+        bttn1.addEventListener('click',function(){
+            alert('버튼1 클릭!');
+        });
+
+        bttn2.addEventListener('mouseup',function(){
+            alert('버튼2 마우스업');
+        });
+
+        bttn3.addEventListener('mousedown',function(){
+            alert('버튼2 마우스다운');
+        });
+
+
+    </script>
+
+
+</body>
+</html>
