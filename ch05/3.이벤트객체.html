@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container {
+            width: 600px;
+            height: 300px;
+            border : 1px solid black;
+        }
+
+        
+    </style>
+
+    <script>
+        
+
+        window.onload = function() {
+            const container = document.getElementById('container');
+        }
+
+        //HTML 의 모든 자원을 로드하는 대신 최소 HTML 태그 자원만 로드될 때 
+         document.addEventListener('DOMContentLoaded',function(){
+            const container = document.getElementById('container');
+            const spans = document.getElementsByTagName('span');
+
+            container.addEventListener('mousemove',function(e){
+
+                spans[0].innerText = e.clientX;
+                spans[1].innerText = e.clientY;
+                spans[2].innerText = e.pageX;
+                spans[3].innerText = e.pageY;
+                spans[4].innerText = e.screenX;
+                spans[5].innerText = e.screenY;
+                spans[6].innerText = e.target;
+                spans[7].innerText = e.target.tagName;
+                spans[8].innerText = e.target.id;
+                spans[9].innerText = e.timeStamp;
+            });
+
+            // 기본 이벤트 해제 
+            const tags = document.getElementsByTagName('a');
+            const form = document.getElementsByTagName('form')[0];
+
+
+            tags[0].addEventListener('click', function(){
+                e.preventDefault(); // a 태그 기본 링크이동 
+                alert('네이버 클릭!');
+            });
+
+            tags[1].onclick = function(event){
+                event.preventDefault();
+                alert('구글 클릭');
+
+                // 기본 이벤트 모델에서는 return false로 기본 이벤트 해제 가능
+                return false;
+            }
+
+            const result = document.getElementById('result');
+            const resultSpan = result.getElementsByTagName('span');
+
+
+            form.onsubmit = (e) => {
+                e.preventDefault(); // 폼 전송 취소
+                alert('폼 전송');
+            }
+
+            resultSpans[0].innerText = e.target.userid.value;
+            resultSpans[1].innerText = e.target.pass.value;
+
+         });
+
+
+
+    </script>
+</head>
+<body>
+
+    <div id="container"></div>
+    
+    <h4>이벤트 객체 주요속성</h4>
+    <p>
+        clientX : <span>0</span><br>
+        clientY : <span>0</span><br>
+        pageX : <span>0</span><br>
+        pageY : <span>0</span><br>
+        screenX : <span>0</span><br>
+        screenY : <span>0</span><br>
+        target : <span>0</span><br>
+        target name : <span>0</span><br>
+        target id : <span>0</span><br>
+        timestamp : <span>0</span><br>
+    
+    </p>
+
+
+    <h4>기본 이벤트 해제 </h4>
+    <a href="https://naver.com">네이버</a>
+    <a href="https://google.com">구글</a>
+
+    <form action="https://google.com">
+        <input type="text" name="userid"><br>
+        <input type="text" name="pass"><br>
+        <input type="submit" name="전송"><br>
+    </form>
+
+    <div id="result">
+        <span></span>
+        <span></span>
+    </div>
+
+</body>
+</html>
