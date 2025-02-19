@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>4.AJAX</title>
+    <!--
+        날짜 : 2025/02/18
+        이름 : 최명기
+        내용 : 자바스크립트 AJAX 통신 실습하기     
+    
+    -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const btnUser1 = document.getElementById("btnUser1");
+        const user1 = document.getElementById("user1");
+        const spans = user1.getElementsByTagName("span");
+
+        btnUser1.onclick = function () {
+          // AJAX 객체 생성
+          const xhr = new XMLHttpRequest();
+          xhr.open("GET", "./data/user1.json");
+
+          // 요청
+          xhr.send();
+
+          // 응답 처리
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == XMLHttpRequest.DONE) {
+              // 요청 성공
+              if (xhr.status == 200) {
+                const resDate = JSON.parse(xhr.responseText);
+                console.log(resData);
+
+                spans[0].innerText = resDate.uid;
+                spans[1].innerText = resDate.name;
+                spans[2].innerText = resDate.age;
+                spans[3].innerText = resDate.addr;
+              }
+            }
+          };
+        };
+
+        const btnUser2 = document.getElementById("btnUser2");
+        const user2 = document.getElementById("user2");
+        const user2spans = user1.getElementsByTagName("span");
+
+        btnUser2.onclick = function () {
+          fetch("./data/user2.json")
+            .then((response) => {
+              console.log(response);
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data);
+              user2Spans[0].innerText = data.uid;
+              user2Spans[1].innerText = data.name;
+              user2Spans[2].innerText = data.age;
+              user2Spans[3].innerText = data.addr;
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+            .finally(() => {
+              console.log("finally...");
+            });
+        };
+
+        // btnUsers
+        const btnUsers = document.getElementById("btnUsers");
+        const table = document.getElementsByTagName("table")[0];
+
+        btnUsers.onclick = async function () {
+          const response = await fetch("./data/users.json");
+          const data = await response.json();
+
+          console.log(data.users);
+
+          for (const user of data.users) {
+            // 태그 문자열로 동적 태그 생성
+            const tr = `<tr>
+                                <td>${user.uid}</td>
+                                <td>${user.name}</td>
+                                <td>${user.age}</td>
+                                <td>${user.addr}</td>
+                                </tr>`;
+
+            table.insertAdjacentHTML("beforeend", tr);
+          }
+        };
+      });
+    </script>
+  </head>
+  <body>
+    <h3>4.AJAX</h3>
+
+    <button id="btnUser1">user1 데이터 요청</button>
+    <p id="user1">
+      아이디 : <span></span><br />
+      이름 : <span></span><br />
+      나이 : <span></span><br />
+      주소 : <span></span><br />
+    </p>
+
+    <button id="btnUser2">user2 데이터 요청</button>
+    <p id="user2">
+      아이디 : <span></span><br />
+      이름 : <span></span><br />
+      나이 : <span></span><br />
+      주소 : <span></span><br />
+    </p>
+
+    <button id="btnUsers">users 데이터 요청</button>
+    <table border="1">
+      <tr>
+        <th>아이디</th>
+        <th>이름</th>
+        <th>나이</th>
+        <th>주소</th>
+      </tr>
+    </table>
+  </body>
+</html>

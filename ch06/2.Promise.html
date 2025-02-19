@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>2.Promise</title>
+    <!--
+        날짜 : 2025/02/17
+        이름 : 최명기
+        내용 : 자바스크립트 Promise 실습하기
+    -->
+  </head>
+  <body>
+    <h3>2.Promise</h3>
+    <script>
+      // Promise 기본
+      const result = false;
+
+      const promise = new Promise((resolve, reject) => {
+        if (result) {
+          resolve("promise success...");
+        } else {
+          reject("promise fail...");
+        }
+      });
+
+      promise
+        .then((msg) => {
+          console.log("promise then...");
+          console.log(msg);
+        })
+        .catch((msg) => {
+          console.log("promise catch...");
+          console.log(msg);
+        })
+        .finally(() => {
+          console.log("promise finally...");
+        });
+
+      // Promise를 이용한 비동기 처리
+      function step1() {
+        const promise = new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("step1...");
+          }, 1000);
+        });
+        return promise;
+      }
+
+      function step2() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("step2...");
+          }, 3000);
+        });
+      }
+
+      function step3() {
+        return new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve("step3...");
+          }, 2000);
+        });
+      }
+
+      step1()
+        .then((msg) => {
+          console.log("then...1");
+          console.log(msg);
+          return step2();
+        })
+        .then((msg) => {
+          console.log("then...2");
+          console.log(msg);
+          return step3();
+        })
+        .then((msg) => {
+          console.log("then...3");
+          console.log(msg);
+        })
+        .finally(() => {
+          console.log("finally...");
+        });
+    </script>
+  </body>
+</html>

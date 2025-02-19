@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDo List</title>
+
+    <!-- ✅ Bootstrap CSS 추가 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h3 class="p-3 bg-primary text-light text-center rounded">To-Do List</h3>
+      <p class="text-center text-secondary">오늘 할 일을 작성해 보세요!</p>
+
+      <!-- 할 일 입력 폼 -->
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          id="inputTodo"
+          class="form-control"
+          placeholder="할 일을 입력하세요"
+        />
+        <button class="btn btn-primary" type="button" id="btnAdd">추가</button>
+      </div>
+
+      <!-- 할 일 목록 -->
+      <ol id="todoList" class="list-group list-group-numbered shadow-sm"></ol>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

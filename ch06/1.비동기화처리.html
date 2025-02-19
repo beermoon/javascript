@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.비동기처리</title>
+    <!--
+        날짜 : 2025/02/17
+        이름 : 최명기
+        내용 : 자바스크립트 비동기 처리 실습하기
+    
+    -->
+</head>
+<body>
+    <h3>1.콜백함수</h3>
+
+    <script>
+        // 콜백함수를 이용한 비동기 처리 
+        console.log('시작..');
+
+        setTimeout(() => {
+            console.log('작업...');
+        },1000);
+
+
+        console.log('끝...');
+
+
+
+        // 콜백함수를 이용한 비동기 처리
+        
+        function start(callback) {
+
+            console.log('start...');
+
+            setTimeout(() => {
+                console.log('process...');
+                callback();
+            },1000)
+
+        }
+
+        function end() {
+            console.log('end...');
+        }
+
+        start(end);
+
+        // 콜백지옥
+        function step1(callback) {
+
+            setTimeout(() => {
+                console.log('step1....');
+                callback();
+            },1000);
+        }
+
+        function step2(callback) {
+
+            setTimeout(() => {
+            console.log('step1....');
+            callback();
+            },3000);
+        }
+
+
+
+        function step3(callback) {
+
+            setTimeout(() => {
+            console.log('step1....');
+            callback();
+        },2000);
+        }   
+
+
+        step1(step2(step()));
+
+        step1(function(){
+            step2(function(){
+                step3(function(){});
+            });
+        });
+        
+       
+
+
+    </script>
+
+
+</body>
+</html>
