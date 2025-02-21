@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.jQuery개요</title>
+    <!--
+        날짜 : 2025/02/21
+        이름 : 최명기
+        내용 : 8장 jQuery 실습하기
+    -->
+    <script src="./js/jquery-3.7.1.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const city = document.getElementById("city");
+        const list = city.getElementsByTagName("li");
+        li[0].style.color = "red";
+      });
+
+      // jQuery
+      $(document).ready(function () {
+        $("#city > li:nth-child(2)").css("color", "blue");
+      });
+    </script>
+  </head>
+  <body>
+    <h3>1.jQuery개요</h3>
+
+    <ul id="city">
+      <li>서울</li>
+      <li>대전</li>
+      <li>대구</li>
+      <li>부산</li>
+      <li>광주</li>
+    </ul>
+  </body>
+</html>

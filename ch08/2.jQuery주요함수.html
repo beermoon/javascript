@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        // jquery 객체 생성
+        const lis = $("ul > li");
+
+        // eq() : 문서 객체배열 탐색
+        lis.eq(0).css("color", "red");
+        lis.eq(3).css("color", "blue");
+
+        // text() , html() : 문서 객체 내용
+        $("p").eq(0).text("<i>text 내용입니다.</i>");
+        $("p").eq(1).text("<i>text 내용입니다.</i>");
+
+        // click() : 클릭 이벤트 함수
+        $("#btn1").click(function () {
+          alert("버튼1 클릭!");
+        });
+
+        $("#btn2").click(function () {
+          alert("버튼2 클릭!");
+        });
+
+        // ajax() : HTTP 통신 함수
+        $("#btnUser1").click(function () {
+          $.ajax({
+            url: "./data/user1.json",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+              console.log(data);
+
+              $("span").eq(0).text(data.uid);
+              $("span").eq(1).text(data.name);
+              $("span").eq(2).text(data.age);
+              $("span").eq(3).text(data.addr);
+            },
+          });
+        });
+
+        $("#btnUser2").click(function () {
+          $.ajax({
+            url: "./data/user2.json",
+            type: "get",
+            dataType: "json",
+            success: function (data) {
+              console.log(data);
+
+              $("span").eq(0).text(data.uid);
+              $("span").eq(1).text(data.name);
+              $("span").eq(2).text(data.age);
+              $("span").eq(3).text(data.addr);
+            },
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h3>2.jQuery 주요함수</h3>
+
+    <ul>
+      <li id="seoul">서울</li>
+      <li>대전</li>
+      <li>대구</li>
+      <li class="부산">부산</li>
+      <li>광주</li>
+    </ul>
+
+    <p></p>
+    <p></p>
+
+    <button id="btn1">버튼1</button>
+    <button id="btn2">버튼2</button>
+
+    <button id="btnUser1">User1</button>
+    <button id="btnUser2">User2</button>
+
+    <p>
+      아이디 : <span></span><br />
+      이름 : <span></span><br />
+      나이 : <span></span><br />
+      주소 : <span></span><br />
+    </p>
+  </body>
+</html>

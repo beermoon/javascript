@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>1.지도API</title>
+    <!--
+        날짜 : 2025/02/20
+        이름 : 최명기
+        내용 : 지도 API 실습하기
+
+        지도 인증키 : dd2543f5123fb54746361378dbfdde45
+
+        1) 카카오 개발자 플랫폼 로그인 
+        2) 내 애플리케이션 등록
+        3) 플랫폼 > Web > http://127.0.0.1:5500 등록 
+        4) 카카오맵 > 활성화 설정 
+        5) 앱키 > Javascript 인증키 확인  
+
+    -->
+  </head>
+  <body>
+    <h3>1.지도 API</h3>
+
+    <h4>지도 생성하기</h4>
+    <div id="map" style="width: 500px; height: 400px"></div>
+
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dd2543f5123fb54746361378dbfdde45"
+    ></script>
+    <script>
+      var container = document.getElementById("map"); //지도를 담을 영역의 DOM 레퍼런스
+      var options = {
+        //지도를 생성할 때 필요한 기본 옵션
+        center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+        level: 3, //지도의 레벨(확대, 축소 정도)
+      };
+
+      var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+    </script>
+
+    <h4>지도 마커 찍기</h4>
+    <div id="map2" style="width: 800px; height: 400px"></div>
+    <script>
+      var mapContainer = document.getElementById("map2"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(35.159596, 129.060217), // 지도의 중심좌표
+          level: 3, // 지도의 확대 레벨
+        };
+
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+      // 마커가 표시될 위치입니다
+      var markerPosition = new kakao.maps.LatLng(35.159596, 129.060217);
+
+      // 마커를 생성합니다
+      var marker = new kakao.maps.Marker({
+        position: markerPosition,
+      });
+
+      // 마커가 지도 위에 표시되도록 설정합니다
+      marker.setMap(map);
+    </script>
+
+    <h4>해운대, 광안리, 송정 해수욕장 마커 찍기</h4>
+    <div id="map3" style="width: 800px; height: 400px"></div>
+    <script>
+      var mapContainer = document.getElementById("map3"), // 지도를 표시할 div
+        mapOption = {
+          center: new kakao.maps.LatLng(35.159596, 129.060217), // 지도의 중심좌표
+          level: 3, // 지도의 확대 레벨
+        };
+
+      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+      // 마커가 표시될 위치입니다
+      var markerPosition1 = new kakao.maps.LatLng(35.153466, 129.118709);
+      var markerPosition2 = new kakao.maps.LatLng(35.15929, 129.161152);
+      var markerPosition3 = new kakao.maps.LatLng(35.177813, 129.199046);
+
+      // 마커를 생성합니다
+      var marker1 = new kakao.maps.Marker({
+        position: markerPosition1,
+      });
+      var marker2 = new kakao.maps.Marker({
+        position: markerPosition2,
+      });
+      var marker3 = new kakao.maps.Marker({
+        position: markerPosition3,
+      });
+
+      // 마커가 지도 위에 표시되도록 설정합니다
+      marker1.setMap(map);
+      marker2.setMap(map);
+      marker3.setMap(map);
+    </script>
+  </body>
+</html>
